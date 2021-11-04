@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Об авторе проекта{% endblock %}
+{% block content %}
+    <h1>Привет, меня зовут Андрей</h1>
+    <div class="row">
+        <div class="col-4">
+            <img src="{% static 'img/author.jpg' %}" class="img-thumbnail img-responsive" alt="Andrey Kuskov">
+        </div>
+        <div class="col-8">
+            <p>
+                Более 7 лет в интернет-маркетинге, специализируюсь на seo, веб-аналитике, контексной рекламе,
+                но, признаюсь, немного надоело. Последнее время увлекаюсь программированием на языке Python.
+            </p>
+            <a href="{% url 'about:tech' %}"><button type="button" class="btn btn-primary">Мой стек</button></a>
+        </div>
+    </div>
+
+{% endblock %}
