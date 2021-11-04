@@ -124,11 +124,10 @@ class PostCreateFormTests(TestCase):
 
         # check that authorized client can publish a comment
 
-        self.auth_client.post(
-                reverse('posts:add_comment', args=(self.post.pk,)),
-                data=form_data,
-                follow=True
-        )
+        self.auth_client.post(reverse('posts:add_comment',
+                              args=(self.post.pk,)),
+                              data=form_data,
+                              follow=True)
         self.assertEqual(self.post.comments.count(), post_comments_count + 1)
 
         # check that comment is published

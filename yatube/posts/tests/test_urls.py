@@ -55,5 +55,3 @@ class UrlTemplateTests(TestCase):
             with self.subTest(url=url):
                 response = self.authorized_client.get(url)
                 self.assertTemplateUsed(response, template)
-
-
