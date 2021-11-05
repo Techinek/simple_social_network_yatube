@@ -4,6 +4,7 @@
 {% endblock title %}
 {% block content %}
   <h1>{{ title }}</h1>
+    {% include 'includes/switcher.html' %}
     {% include 'includes/post_list.html' %}
   {% include 'includes/paginator.html' %}
 {% endblock content %}
