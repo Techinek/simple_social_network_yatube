@@ -8,13 +8,15 @@ from .models import Follow, Group, Post, User
 
 
 def index(request):
-    posts = Post.objects.all()
+    posts = Post.objects.select_related('group')
     paginator = Paginator(posts, settings.POSTSNUM)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     context = {
         'title': 'Последние обновления на сайте',
-        'page_obj': page_obj}
+        'page_obj': page_obj,
+        'index': True
+    }
 
     return render(request, 'posts/index.html', context)
 
@@ -125,24 +127,25 @@ def add_comment(request, post_id):
 
 @login_required
 def follow_index(request):
-    followed_authors = request.user.follower.values('author')
-    posts = Post.objects.filter(author__in=followed_authors)
+    posts = Post.objects.filter(author__in=request.user.follower.
+                                values('author'))
     paginator = Paginator(posts, settings.POSTSNUM)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     title = 'Ваши подписки'
     context = {
         'title': title,
-        'page_obj': page_obj}
+        'page_obj': page_obj,
+        'follow': True
+    }
     return render(request, 'posts/follow.html', context)
 
 
 @login_required
 def profile_follow(request, username):
     author = get_object_or_404(User, username=username)
-    if (request.user != author and not
-            request.user.follower.filter(author=author).exists()):
-        Follow.objects.create(author=author, user=request.user)
+    if request.user != author:
+        Follow.objects.get_or_create(author=author, user=request.user)
         return redirect('posts:profile', username)
     return redirect('posts:profile', username)
 

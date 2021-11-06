@@ -71,3 +71,11 @@ class Follow(models.Model):
                                blank=True,
                                null=True,
                                )
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                name='unique_subscription',
+                fields=['user', 'author'],
+            ),
+        ]

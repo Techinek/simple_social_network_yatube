@@ -265,6 +265,9 @@ class TestPageTemplates(TestCase):
         response = self.follower_client.get(reverse('posts:follow_index'))
         self.assertGreater(len(response.context['page_obj']), 0)
 
+    def test_unsubscribe_from_author(self):
+        self.follower_client.get(reverse('posts:profile_follow',
+                                         args=(self.user,)))
         self.follower_client.get(reverse('posts:profile_unfollow',
                                          args=(self.user,)))
 
