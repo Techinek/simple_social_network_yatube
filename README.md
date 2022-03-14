@@ -15,6 +15,7 @@
 - Django 2
    
 **Установка**:
+
 1. Клонируем репозиторий на локальную машину:
 `$ git clone https://github.com/Techinek/simple_social_network_yatube.git`
 
