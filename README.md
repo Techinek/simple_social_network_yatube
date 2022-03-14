@@ -14,5 +14,23 @@
 - Python 3
 - Django 2
    
-**Установка зависимостей**:
-- `pip install requirements.txt`
+**Установка**:
+Клонируем репозиторий на локальную машину:
+
+`$ git clone https://github.com/netshy/api_final_yatube.git`
+
+Создаем виртуальное окружение(Linux):
+
+`$ python -m venv venv`
+
+Устанавливаем зависимости:
+
+`$ pip install -r requirements.txt`
+
+Создание и применение миграций:
+
+`$ python manage.py makemigrations и $ python manage.py migrate`
+
+Запускаем django сервер:
+
+`$ python manage.py runserver`
