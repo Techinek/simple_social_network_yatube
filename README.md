@@ -15,22 +15,17 @@
 - Django 2
    
 **Установка**:
-Клонируем репозиторий на локальную машину:
+1. Клонируем репозиторий на локальную машину:
+`$ git clone https://github.com/Techinek/simple_social_network_yatube.git`
 
-`$ git clone https://github.com/netshy/api_final_yatube.git`
-
-Создаем виртуальное окружение(Linux):
-
+2. Создаем виртуальное окружение(Linux):
 `$ python -m venv venv`
 
-Устанавливаем зависимости:
-
+3. Устанавливаем зависимости:
 `$ pip install -r requirements.txt`
 
-Создание и применение миграций:
-
+4. Создаем и применяем миграции:
 `$ python manage.py makemigrations и $ python manage.py migrate`
 
-Запускаем django сервер:
-
+5. Запускаем локальный django-сервер:
 `$ python manage.py runserver`
