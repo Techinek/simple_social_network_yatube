@@ -11,8 +11,8 @@
 - присваивать записи к определенным группам.
 
 **Cтек**:
-   - Python 3;
-   - Django 2.
+- Python 3
+- Django 2
    
 **Cтек**:
 Установка зависимостей: `pip install requirements.txt`
