@@ -14,5 +14,5 @@
 - Python 3
 - Django 2
    
-**Cтек**:
-Установка зависимостей: `pip install requirements.txt`
+**Установка зависимостей**:
+- `pip install requirements.txt`
